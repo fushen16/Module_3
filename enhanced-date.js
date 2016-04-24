@@ -1,1 +1,108 @@
-// export this as a Node module using the code from Module_2
+/*
+** author: fulin shen
+** created on: April 23, 2016
+** description: create a date utility using revealing pattern
+*/
+'use strict';
+
+var dateUtility = (function() {
+  var _privateDate;
+
+  function _initDate() {
+    _privateDate = new Date();
+  }
+
+  function setDate(newDate) {
+    if(newDate != null) {
+      _privateDate = new Date(newDate);
+    } else {
+      _privateDate = new Date();
+    }
+  }
+
+  function getDayName() {
+    var locale = 'en-us';
+    if(!_privateDate) {
+      _initDate();
+    }
+
+    return _privateDate.toLocaleDateString(locale, { weekday: 'long' });
+  }
+
+  function getMonthName() {
+    var locale = 'en-us';
+    if(!_privateDate) {
+      _initDate();
+    }
+
+    return _privateDate.toLocaleString(locale, { month: 'long' });
+  }
+
+  //getDate() and getDate('milliseconds') return milliseconds
+  //getDate('formatted') return date in the form of 'Month Day, Year'
+  function getDate(format) {
+    if(!_privateDate) {
+      _initDate();
+    }
+
+    if(format == null) {
+      return _privateDate;
+    } else if (format.toLowerCase() === 'milliseconds') {
+      return _privateDate.getTime();
+    } else if (format.toLowerCase() === 'formatted') {
+      return getMonthName() + ' ' + _privateDate.getDate()
+        + ', ' + _privateDate.getFullYear();
+    } else {
+      throw new Error('Invalid input date format');
+    }
+  }
+
+  function isFuture() {
+    if(!_privateDate) {
+      _initDate();
+    }
+
+    var today = new Date();
+    if(_privateDate > today) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function isToday() {
+    if(!_privateDate) {
+      _initDate();
+    }
+
+    var today = new Date();
+    if((today.getDate() == _privateDate.getDate()) &&
+      (today.getMonth() == _privateDate.getMonth()) &&
+      (today.getYear() == _privateDate.getYear())) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  module.exports = {
+    setDate: setDate,
+    getDate: getDate,
+    getDayName: getDayName,
+    getMonthName: getMonthName,
+    isFuture: isFuture,
+    isToday: isToday
+  };
+})();
+
+//testing
+//dateUtility.setDate(12345555555567);
+//var month = dateUtility.getMonthName();
+//console.log(dateUtility.getDayName());
+//console.log(dateUtility.getMonthName());
+//console.log(dateUtility.getDate());
+//console.log(dateUtility.getDate('Milliseconds'));
+//console.log(dateUtility.getDate('formatted'));
+//console.log(dateUtility.getDate('invalidFormat'));
+//console.log(dateUtility.isFuture());
+//console.log(dateUtility.isToday());
