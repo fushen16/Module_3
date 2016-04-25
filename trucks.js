@@ -1,5 +1,3 @@
-// use the underscore module to filter the following data
-
 var foodTrucks = [
   {
     name: '314 PIE',
