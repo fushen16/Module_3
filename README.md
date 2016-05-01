@@ -11,7 +11,7 @@ Week 3
   
     `var trucks = require('./trucks');`  
     `var day = dateObj.getDayName();`  
-    `var truckArray = trucks.filterByDay(day);`
+    `var truckArray = trucks.filterTrucksByDay(day);`
 
   4. In **server.js**, you're going to build an http server (refer to the slide-deck or the class recording as we already did this.) The server should listen for request events, and handle them by writing to the response the following message (note that you'll need to use the Date object to get the 'date' part): 
   
@@ -21,7 +21,7 @@ Week 3
   
         Today is Monday, April 18. The food trucks available are:
 
-  Follow this with a list of food trucks obtained by calling the `filterByDay()` method you implemented in the trucks module:
+  Follow this with a list of food trucks obtained by calling the `filterTrucksByDay()` method you implemented in the trucks module:
   
         314 Pie  
         Absolut Hot Dog and Gyros  
