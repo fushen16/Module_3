@@ -1,13 +1,4 @@
-// use the underscore module to filter the following data
-/*
-** author: Fulin shen
-** created on: April 23, 2016
-** description: create a function to filter the foodTrucks data below based
-**              a given day and food trucks' schedule
-*/
-
 var trucks = (function() {
-
   var foodTrucks = [
     {
       name: '314 PIE',
@@ -67,14 +58,12 @@ var trucks = (function() {
     {
       name: 'BeezNeez Gourmet Sausages',
       type: 'Hot Dogs',
-      schedule: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
-      'Sunday']
+      schedule: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     },
     {
       name: 'Beloved Mexico',
       type: 'Mexican',
-      schedule: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
-      'Saturday', 'Sunday']
+      schedule: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     },
     {
       name: 'Ben & Jerry\'s',
@@ -89,8 +78,7 @@ var trucks = (function() {
     {
       name: 'Big Dog\'s',
       type: 'Hot Dogs',
-      schedule: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
-      'Saturday', 'Sunday']
+      schedule: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     },
     {
       name: 'Big Ed\'s Good Eats',
@@ -245,8 +233,7 @@ var trucks = (function() {
     {
       name: 'Dog Japon',
       type: 'Hot Dogs',
-      schedule: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
-      'Saturday', 'Sunday']
+      schedule: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     },
     {
       name: 'Dogfather Catering',
@@ -259,13 +246,6 @@ var trucks = (function() {
       schedule: []
     }
   ];
-
-/*
- * return an object from the module with a single method on it: filterByDay
- * that method should take a single parameter that representrts the day to
- * filter on use the built-in filter() method to return all trucks that have
- * the day in their schedule
- */
 
   function filterTrucksByDay(day) {
     function truckFilter(item) {
@@ -280,45 +260,8 @@ var trucks = (function() {
     return (foodTrucks.filter(truckFilter, day));
   }
 
-  function getTrucks(){
-    return foodTrucks;
-  }
-
-  function getTruck(name) {
-    function truckFilterByName(item) {
-      return (item.name == name);
-    }
-
-    return (foodTrucks.filter(truckFilterByName, name));
-  }
-
-  function getFoodTypes() {
-    var temp = [];
-    for (var i=0; i<foodTrucks.length; i++) {
-      temp.push(foodTrucks[i].type);
-    }
-
-    return temp.filter(function(elem, index, self) {
-      return index == self.indexOf(elem);
-    }).sort();
-  }
-
-  function filterTrucksByFoodType(foodType) {
-    function filterByFoodType(item) {
-      return (item.type == foodType);
-    }
-
-    return foodTrucks.filter(filterByFoodType, foodType);
-  }
-
   module.exports = {
-    filterTrucksByDay: filterTrucksByDay,
-    getTrucks: getTrucks,
-    getTruck: getTruck,
-    getFoodTypes: getFoodTypes,
-    filterTrucksByFoodType: filterTrucksByFoodType
+    filterTrucksByDay: filterTrucksByDay
   };
 
 })();
-
-//console.log(trucks.filterByDay('Monday'));

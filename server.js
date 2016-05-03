@@ -25,7 +25,7 @@ function getTruckList() {
   var filterdTrucks = trucks.filterTrucksByDay(enhancedDate.getDayName());
 
   dateStr = 'Today is: ' + enhancedDate.getDayName() + ', ' +
-    enhancedDate.getDate({ format: "formatted" });
+    enhancedDate.getDate({ format: 'formatted' });
   for (var i=0; i<filterdTrucks.length; i++) {
     truckList += filterdTrucks[i].name + '\n';
     //console.log(response);

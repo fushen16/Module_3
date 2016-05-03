@@ -5,7 +5,7 @@
 */
 'use strict';
 
-var dateUtility = (function() {
+var enhancedDate = (function() {
   var _privateDate;
 
   function _initDate() {
