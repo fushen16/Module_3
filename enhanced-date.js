@@ -5,7 +5,7 @@
 */
 'use strict';
 
-var dateUtility = (function() {
+var enhancedDate = (function() {
   var _privateDate;
 
   function _initDate() {
@@ -38,18 +38,17 @@ var dateUtility = (function() {
     return _privateDate.toLocaleString(locale, { month: 'long' });
   }
 
-  //getDate() and getDate('milliseconds') return milliseconds
-  //getDate('formatted') return date in the form of 'Month Day, Year'
-  function getDate(format) {
+  //getDate() and .getDate({ format: "milliseconds" }) return milliseconds
+  //getDate({ format: "formatted" }) return date in the form of 'Month Day, Year'
+  function getDate(formatObj) {
     if(!_privateDate) {
       _initDate();
     }
 
-    if(format == null) {
-      return _privateDate;
-    } else if (format.toLowerCase() === 'milliseconds') {
+    if((formatObj === undefined) ||
+       (formatObj.format.toLowerCase() === 'milliseconds')) {
       return _privateDate.getTime();
-    } else if (format.toLowerCase() === 'formatted') {
+    } else if (formatObj.format.toLowerCase() === 'formatted') {
       return getMonthName() + ' ' + _privateDate.getDate()
         + ', ' + _privateDate.getFullYear();
     } else {
@@ -94,15 +93,3 @@ var dateUtility = (function() {
     isToday: isToday
   };
 })();
-
-//testing
-//dateUtility.setDate(12345555555567);
-//var month = dateUtility.getMonthName();
-//console.log(dateUtility.getDayName());
-//console.log(dateUtility.getMonthName());
-//console.log(dateUtility.getDate());
-//console.log(dateUtility.getDate('Milliseconds'));
-//console.log(dateUtility.getDate('formatted'));
-//console.log(dateUtility.getDate('invalidFormat'));
-//console.log(dateUtility.isFuture());
-//console.log(dateUtility.isToday());

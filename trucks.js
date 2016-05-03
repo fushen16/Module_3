@@ -1,13 +1,4 @@
-// use the underscore module to filter the following data
-/*
-** author: Fulin shen
-** created on: April 23, 2016
-** description: create a function to filter the foodTrucks data below based
-**              a given day and food trucks' schedule
-*/
-
 var trucks = (function() {
-
   var foodTrucks = [
     {
       name: '314 PIE',
@@ -67,14 +58,12 @@ var trucks = (function() {
     {
       name: 'BeezNeez Gourmet Sausages',
       type: 'Hot Dogs',
-      schedule: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
-      'Sunday']
+      schedule: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     },
     {
       name: 'Beloved Mexico',
       type: 'Mexican',
-      schedule: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
-      'Saturday', 'Sunday']
+      schedule: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     },
     {
       name: 'Ben & Jerry\'s',
@@ -89,8 +78,7 @@ var trucks = (function() {
     {
       name: 'Big Dog\'s',
       type: 'Hot Dogs',
-      schedule: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
-      'Saturday', 'Sunday']
+      schedule: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     },
     {
       name: 'Big Ed\'s Good Eats',
@@ -245,8 +233,7 @@ var trucks = (function() {
     {
       name: 'Dog Japon',
       type: 'Hot Dogs',
-      schedule: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
-      'Saturday', 'Sunday']
+      schedule: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     },
     {
       name: 'Dogfather Catering',
@@ -260,13 +247,7 @@ var trucks = (function() {
     }
   ];
 
-/*
- * return an object from the module with a single method on it: filterByDay
- * that method should take a single parameter that representrts the day to
- * filter on use the built-in filter() method to return all trucks that have
- * the day in their schedule
- */
-  function filterByDay(day) {
+  function filterTrucksByDay(day) {
     function truckFilter(item) {
       var scheduleLen = item.schedule.length;
       for (var i=0; i<scheduleLen; i++) {
@@ -280,9 +261,7 @@ var trucks = (function() {
   }
 
   module.exports = {
-    filterByDay: filterByDay
+    filterTrucksByDay: filterTrucksByDay
   };
 
 })();
-
-//console.log(trucks.filterByDay('Monday'));

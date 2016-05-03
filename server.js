@@ -22,10 +22,10 @@ function getTruckList() {
   var responseStr = '';
   var dateStr = '';
   var truckList = '';
-  var filterdTrucks = trucks.filterByDay(enhancedDate.getDayName());
+  var filterdTrucks = trucks.filterTrucksByDay(enhancedDate.getDayName());
 
   dateStr = 'Today is: ' + enhancedDate.getDayName() + ', ' +
-    enhancedDate.getDate('formatted');
+    enhancedDate.getDate({ format: 'formatted' });
   for (var i=0; i<filterdTrucks.length; i++) {
     truckList += filterdTrucks[i].name + '\n';
     //console.log(response);
@@ -44,4 +44,4 @@ http.createServer(function (request, response) {
   console.log('listening on port 3000');
 });
 
-//console.log("today is "+enhancedDate.getDate('formatted'));
+//console.log("today is "+enhancedDate.getDate({ format: "formatted" }));

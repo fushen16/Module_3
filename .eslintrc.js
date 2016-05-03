@@ -4,8 +4,9 @@ module.exports = {
         "node": true
     },
     "globals": {
-        "google":true,
-        "trucks":true
+        "google":true
+        //"trucks":true
+        //"result":true
     },
     "extends": "eslint:recommended",
     "rules": {
@@ -36,7 +37,7 @@ module.exports = {
         ],
         "max-len": [
           "error",
-          80,
+          100,
           2,
           {"ignoreUrls": true}
         ],
