@@ -247,17 +247,15 @@ var trucks = (function() {
     }
   ];
 
-  function filterTrucksByDay(day) {
-    function truckFilter(item) {
+  function  filterTrucksByDay(day) {
+    return (foodTrucks.filter(function(item){
       var scheduleLen = item.schedule.length;
       for (var i=0; i<scheduleLen; i++) {
         if(item.schedule[i] == day) {
           return true;
         }
       }
-    }
-
-    return (foodTrucks.filter(truckFilter, day));
+    }));
   }
 
   module.exports = {
